@@ -1,6 +1,14 @@
-# Remote Desktop Menu
+## Remote Desktop Menu
 
 Ctrl + Shift + Alt
+
+
+## Jupyter on Windows
+
+1. Windows Start, Type Miniconda, 
+2. Open Miniconda command prompt
+3. `cd \workshop`
+4. `jupyter lab`
 
 
 
