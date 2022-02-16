@@ -1,3 +1,11 @@
+# Remote Desktop Menu
+
+Ctrl + Shift + Alt
+
+
+
+## Virtual Env
+
 
 create venv
 
