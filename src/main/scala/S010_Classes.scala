@@ -24,4 +24,7 @@ object S010_Classes extends  App {
   println(p1.price, p1.discount, p1.total)
 
   println(p2) // calls p2.toString() to get string data
+
+  val s = p2.toString()
+  println(s)
 }

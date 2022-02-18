@@ -23,7 +23,7 @@ object S009_HigherOrderFunction extends  App {
   // sum of sq/cube/sqrt/anything of numbers
 
   val sum: (Double => Double, Double*) => Double = ( f, numbers) => {
-     var s = 0.0
+     var s: Double = 0.0
     // for each numbers
      for ( n <- numbers) {
        s += f(n)

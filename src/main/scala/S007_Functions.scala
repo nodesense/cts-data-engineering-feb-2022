@@ -5,12 +5,11 @@ object S007_Functions extends  App {
   // use => to define functions in scala
   // method is not function , method is not an object
 
-  // a function that takes no parameter, return no result
+  // a function that takes no parameter, return no result/Unit
   val greeting = () => println("Good Afternoon")
 
-  greeting()
 
-  // a function that takes 1 parameter, return no result
+  // a function that takes 1 parameter, return no result/Unit
   // function type is inferred by compiler
   val greet = (name: String) => println("Good Afternoon", name)
 

@@ -24,4 +24,45 @@ object S004_BlockExpression extends App {
   }
 
   println(result4) // ()
+  // what is value of t = 110
+  val t = {
+    10 + 20
+    50 + 60 // last expression result = 110
+  }
+
+  val gr = {
+     val a = 60
+    val b = 40
+    val c = 50
+
+    val result = if (a > b && a > c) {
+      a
+    } else if (b > c) b
+    else {
+     c
+    }
+
+    result
+  }
+
+  println(gr)
+
+  val gr2 = {
+    val a = 60
+    val b = 40
+    val c = 50
+
+    // what is value of result? Unit
+    val result = if (a > b && a > c) {
+        println("A is greater") // return Unit
+    } else if (b > c) println("B is greater")
+    else {
+      println("C is greater")
+    }
+
+    result
+  }
+
+  println(gr2) // what will be printing ()
+
 }

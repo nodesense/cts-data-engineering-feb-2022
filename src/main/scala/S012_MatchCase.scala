@@ -32,4 +32,15 @@ object S012_MatchCase extends  App {
 
   println(discount)
 
+
+  val r = (if (10 < 5) 1 else 0)
+  val result3 = r  match {
+    case 0 => "Zero"
+    case 1 => "One"
+    // 2 & 3 default
+    case _ => "Unknown" // default case, if 0 or 1 is not matched
+  }
+
+  println(result2)
+
 }

@@ -17,7 +17,7 @@ object S008_FunctionSyntax extends  App {
   greet("Venkat")
 
   // a function takes 1 parameter, return 1 result
-  val pow: Int => Int = (n) => n * n
+  val pow: Int => Int = n => n * n
 
   // a function takes 2 parameter, return 1 result
   // for more than 1 parameter, ( is mandatory
