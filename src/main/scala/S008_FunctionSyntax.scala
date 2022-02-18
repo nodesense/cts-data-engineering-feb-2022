@@ -23,6 +23,8 @@ object S008_FunctionSyntax extends  App {
   // for more than 1 parameter, ( is mandatory
   val add: (Int, Int) => Int = (a, b) => a + b
 
+  val add2: Function2[Int, Int, Int]   = (a, b) => a + b
+
   println (pow(5) )
   println( add(10, 20))
 }

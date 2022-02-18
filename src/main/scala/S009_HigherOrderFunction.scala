@@ -32,6 +32,9 @@ object S009_HigherOrderFunction extends  App {
     s // return value, last evaluated expression value returned by scala
   }
 
+  // FIXME
+  // val s: Function2[Function1[Int, Int], Seq[Double], Double] = sum;
+
   // IntellijSense from IntelliJ Authors
   // 1 ^2 + 2 ^ 2 = 5
   val result1 = sum ( n => n * n, 1.0, 2.0)
@@ -39,4 +42,5 @@ object S009_HigherOrderFunction extends  App {
 
   println (sum (n => Math.tan(n), 4.0, 6.0, 8.0))
   println (sum (n => Math.log(n), 4.0, 6.0, 8.0))
+
 }
