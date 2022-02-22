@@ -45,6 +45,11 @@ To create empty file,
 hdfs dfs -touchz /test/welcome.txt
 ```
 
+Check if welcome.txt created or not
+
+```
+ hdfs dfs -ls /test
+``` 
 
 To copy from local folder to HDFS 
 
@@ -98,6 +103,10 @@ echo "greeting" >> sourcefile.txt
 
 ```
 hdfs dfs -moveFromLocal ./sourcefile.txt /test
+```
+
+```
+hdfs dfs -ls /test
 ```
 
 ## Handle files within HDFS
@@ -165,3 +174,29 @@ hdfs -setrep -R -w 4 /test
 ```
 hdfs fsck / -files -blocks
 ```
+
+
+## Excercises
+
+create a file called in local system
+
+touch stocks.csv
+
+use nano or echo to  create file, update the content as shown below
+```
+product_code,quantity
+10000, 1000
+10010, 100
+```
+
+-- In hadoop
+
+Create a directory called /inventory
+
+upload stacks.csv to hadoop inventory directory
+
+get the whole file using get or copyToLocal
+
+List inventory directory in hadoop
+
+delete the file from inventory 
