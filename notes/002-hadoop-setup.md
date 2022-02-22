@@ -18,3 +18,26 @@ wget -P $HADOOP_HOME/etc/hadoop/ https://raw.githubusercontent.com/nodesense/kaf
 wget -P $HADOOP_HOME/etc/hadoop/ https://raw.githubusercontent.com/nodesense/kafka-workshop/master/hadoop/yarn-site.xml
 
 ```
+
+```
+ssh localhost
+
+hdfs namenode -format
+
+
+start-all.sh
+
+
+
+jps 
+
+
+
+```
+
+
+Open browser to check whether hdfs namenode working..
+
+http://localhost:50070/
+
+
