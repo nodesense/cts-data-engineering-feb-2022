@@ -11,14 +11,6 @@ sudo mv apache-hive-2.3.8-bin /opt/apache-hive-2.3.8
 sudo chmod 777  /opt/apache-hive-2.3.8
 ```
 
-```
-sudo nano /etc/environment 
-```
-
-paste below 
-```
-HIVE_HOME=/opt/apache-hive-2.3.8
-```
 
 ```
 export HIVE_HOME=/opt/apache-hive-2.3.8
@@ -111,4 +103,14 @@ update test set name='Google' where id=1;
  
  ```
 
+
+
+```
+sudo nano /etc/environment 
+```
+
+paste below 
+```
+HIVE_HOME=/opt/apache-hive-2.3.8
+```
  
