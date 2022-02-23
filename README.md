@@ -2,6 +2,39 @@
 
 Ctrl + Shift + Alt
 
+## Ubuntu Services to start
+
+Do whenever you restart ubuntu/window system restart/system start
+
+Start hadoop cluster
+
+```
+ssh localhost
+
+start-all.sh
+
+jps 
+```
+
+Open new Terminal,
+
+Start Meta Data Server for hive
+
+```
+cd $HIVE_HOME 
+
+$HIVE_HOME/bin/hive --service metastore
+```
+
+Open new terminal, 
+
+Start Hive Server 2 for JDBC, web etc
+
+```
+cd $HIVE_HOME
+$HIVE_HOME/bin/hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10000 --hiveconf hive.root.logger=INFO,console
+```
+
 
 ## Jupyter on Windows
 
