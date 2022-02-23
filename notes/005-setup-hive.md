@@ -13,6 +13,23 @@ sudo chmod 777  /opt/apache-hive-2.3.8
 
 
 ```
+sudo nano /etc/environment 
+```
+
+paste below 
+
+```
+HIVE_HOME=/opt/apache-hive-2.3.8
+```
+ 
+To save file in nano editor,
+
+Ctrl + o - write the file content, if prompted to write, press enter key
+
+Ctrl + x - to close nano editor
+
+
+```
 export HIVE_HOME=/opt/apache-hive-2.3.8
 ```
 
@@ -20,7 +37,7 @@ export HIVE_HOME=/opt/apache-hive-2.3.8
 ```
 cp $HIVE_HOME/conf/hive-site.xml $HIVE_HOME/conf/hive-site.xml.bak
 
-wget -P $HIVE_HOME/conf https://raw.githubusercontent.com/nodesense/cts-aws-spark-april-2021/main/hive-site.xml
+wget -P $HIVE_HOME/conf https://raw.githubusercontent.com/nodesense/cts-data-engineering-feb-2022/main/hive/conf/hive-site.xml
 
 ls $HIVE_HOME/conf
 
@@ -31,6 +48,20 @@ cd $HIVE_HOME
 $HIVE_HOME/bin/schematool -initSchema -dbType derby
 
 ```
+
+Check the output like below
+
+## Start Meta Server 
+
+Open new Linux Terminal
+
+```
+cd $HIVE_HOME 
+
+$HIVE_HOME/bin/hive --service metastore
+```
+
+
 
 output of init schema
 
@@ -48,6 +79,46 @@ Initialization script hive-schema-2.3.0.derby.sql
 Initialization script completed
 schemaTool completed
 ```
+
+Ensure Meta store server running...
+
+
+### Hive server 2 for JDBS, Web Access
+
+do this on separate terminal in git bash / ubuntu
+
+```
+cd $HIVE_HOME
+```
+
+Run Hive Server
+
+```
+$HIVE_HOME/bin/hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10000 --hiveconf hive.root.logger=INFO,console
+```
+ 
+check if that working on port 10000 by default,
+
+```
+<<no need to test>>
+
+netstate -anp | grep 10000
+````
+
+Hive server web UI at port 10002
+
+check in browser http://192.168.80.128:10002
+
+
+
+## Run Hive Cli that connects to Meta Data Server
+
+Open new Command prompt
+
+```
+cd $HIVE_HOME
+```
+
 
 ```
 $HIVE_HOME/bin/hive
@@ -104,13 +175,3 @@ update test set name='Google' where id=1;
  ```
 
 
-
-```
-sudo nano /etc/environment 
-```
-
-paste below 
-```
-HIVE_HOME=/opt/apache-hive-2.3.8
-```
- 
