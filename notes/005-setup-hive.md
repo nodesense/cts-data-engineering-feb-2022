@@ -37,6 +37,7 @@ export HIVE_HOME=/opt/apache-hive-2.3.8
 ```
 cp $HIVE_HOME/conf/hive-site.xml $HIVE_HOME/conf/hive-site.xml.bak
 
+rm $HIVE_HOME/conf/hive-site.xml
 wget -P $HIVE_HOME/conf https://raw.githubusercontent.com/nodesense/cts-data-engineering-feb-2022/main/hive/conf/hive-site.xml
 
 ls $HIVE_HOME/conf
