@@ -3,7 +3,7 @@
 ```
 cd ~
 
-wget https://mirrors.estointernet.in/apache/hive/hive-2.3.8/apache-hive-2.3.8-bin.tar.gz
+wget https://archive.apache.org/dist/hive/hive-2.3.8/apache-hive-2.3.8-bin.tar.gz
 
 tar xf apache-hive-2.3.8-bin.tar.gz
 sudo mv apache-hive-2.3.8-bin /opt/apache-hive-2.3.8
