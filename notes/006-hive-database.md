@@ -86,21 +86,21 @@ To query data from database, we use SELECT statement..
 select all columns [id, name, price, brand_id] from products
 
 ```sql
-SELECT * FROM productdb.products
+SELECT * FROM productsdb.products
 ```
 
 select two columns [  name, price] from products
 
 
 ```sql
-SELECT name, price FROM productdb.products
+SELECT name, price FROM productsdb.products
 ```
 
 select all columns where price of product greater than 500
 
 
 ```sql
-SELECT * FROM productdb.products WHERE price > 500
+SELECT * FROM productsdb.products WHERE price > 500
 ```
 
 
@@ -116,3 +116,61 @@ TERMINOLOGY
 SELECT - PROJECTION - project data out of db
 
 WHERE - FILTER 
+
+## Alter table 
+
+After the table is created, we want to modify column, add column, or drop column,
+change data type, rename table
+
+```sql
+
+CREATE TABLE productsdb.orders2(id INT, product_id INT);
+```
+
+
+Now use describe to see table description
+
+```sql
+DESCRIBE FORMATTED productsdb.orders2;
+```
+
+or 
+
+
+```sql
+DESC FORMATTED productsdb.orders2;
+```
+
+Add new columns to existing table,
+
+```sql
+ALTER TABLE productsdb.orders2 ADD COLUMNS (brand_id INT, amount INT, invoice_id INT);
+```
+
+now check desc  
+
+drop existing column invoice_id
+
+*drop column Not working*
+
+```sql
+ALTER TABLE productsdb.orders2 DROP COLUMN invoice_id;
+```
+
+change column data type,
+
+```sql
+ALTER TABLE productsdb.orders2 CHANGE amount amount DECIMAL(10, 0)
+```
+
+change table name
+
+```sql
+ALTER TABLE productsdb.orders2 RENAME TO productsdb.orders;
+```
+
+show tables, check orders in productsdb
+
+```sql
+SHOW TABLES in  productsdb;
+```
