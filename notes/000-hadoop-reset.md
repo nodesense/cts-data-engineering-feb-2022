@@ -13,7 +13,7 @@ sudo mkdir /data/hdfs
 ```
 
 ```
-suod chmod 777 -R  /data/hdfs
+sudo chmod 777 -R  /data/hdfs
 ```
 
 ```
