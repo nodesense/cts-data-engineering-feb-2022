@@ -57,6 +57,8 @@ then run hive cli,
 $HIVE_HOME/bin/hive
 ```
 
+create table in default db
+
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS employees(
   employee_id INT, 
@@ -68,6 +70,19 @@ CREATE EXTERNAL TABLE IF NOT EXISTS employees(
   FIELDS TERMINATED BY ','
   STORED AS TEXTFILE
   LOCATION '/employees';
+```
+
+
+```sql
+SHOW TABLES IN default;
+```
+
+Desc table, check location, table type 
+Location:           	hdfs://localhost:9000/employees	 
+Table Type:         	EXTERNAL_TABLE 
+
+```sql
+DESC  FORMATTED employees;
 ```
 
 below query should get all the employees from employees1.cav, employees1.csv
