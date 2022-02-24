@@ -69,7 +69,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS employees(
   ROW FORMAT DELIMITED
   FIELDS TERMINATED BY ','
   STORED AS TEXTFILE
-  LOCATION '/employees';
+  LOCATION 'hdfs://localhost:9000/employees';
 ```
 
 
@@ -153,7 +153,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS payroles(
   ROW FORMAT DELIMITED
   FIELDS TERMINATED BY ','
   STORED AS TEXTFILE
-  LOCATION '/payroles'
+  LOCATION 'hdfs://localhost:9000/payroles'
   TBLPROPERTIES ("skip.header.line.count"="1");
 ```
 
