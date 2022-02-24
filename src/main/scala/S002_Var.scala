@@ -15,6 +15,6 @@ object S002_Var extends App {
  // name is string
  var name = "Scala"
  println(name)
- // name = 100 // compilation error
+  // name = 100 // compilation error
  println(name.getClass())
 }

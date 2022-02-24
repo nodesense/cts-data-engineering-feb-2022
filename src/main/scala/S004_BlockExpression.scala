@@ -1,5 +1,6 @@
 object S004_BlockExpression extends App {
   // single line expression , compute and return result
+  val r = 20
   val result = 10 + 20 + 30
   println(result)
   // block - set of lines , multiple lines, using {}
@@ -35,13 +36,13 @@ object S004_BlockExpression extends App {
     val b = 40
     val c = 50
 
+    // output of if statement is value a ie 60, that will be returned
     val result = if (a > b && a > c) {
       a
     } else if (b > c) b
     else {
      c
     }
-
     result
   }
 
@@ -60,7 +61,7 @@ object S004_BlockExpression extends App {
       println("C is greater")
     }
 
-    result
+    result // Unit
   }
 
   println(gr2) // what will be printing ()

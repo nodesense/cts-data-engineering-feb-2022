@@ -32,3 +32,5 @@ object S011_ForLoop extends App {
             j <- 1 to 3
         } println ( i, j)
 }
+
+// DIY - while loop, do ... while..

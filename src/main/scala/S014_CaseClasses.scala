@@ -1,11 +1,12 @@
 object S014_CaseClasses extends  App {
   // case classes known as domain object
+  // case class objects are immutable*
   // domain object, in inventory based application
   // Stock, Inventory, Product, Shelf, Order
   // case classes are useful to create object that represent a fact/event that occured
   // represent database data model
-
-  case class Order(id: Int, amount: Double)
+  // id, amount, name are member variables, of value type
+  case class Order(  id: Int, amount: Double)
   case class Brand(id: Int, name: String)
 
   val order1 = new Order(1, 100)

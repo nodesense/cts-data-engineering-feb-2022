@@ -27,4 +27,20 @@ object S010_Classes extends  App {
 
   val s = p2.toString()
   println(s)
+
+ // id, email are member variables
+  // zipCode is a constructor parameter, not member of brand object
+  class Brand(val id: String, var email: String, zipCode: String) {
+    println(id, email, zipCode)
+
+    println(this.id, this.email, zipCode)
+  }
+
+  val b = new Brand("1", "email@example.com", "56003")
+
+
+  println(b.id) // id is member variable
+  println(b.email) // email is member variable
+  // compiler error
+  // println(b.zipCode) // zipCode is not a member
 }

@@ -11,7 +11,7 @@ object S012_MatchCase extends  App {
 
   println(result)
 
-  val result2 = (14 % 4) match {
+  val result2 = (12 % 4) match {
     case 0 => "Zero"
     case 1 => "One"
     // 2 & 3 default
@@ -21,7 +21,7 @@ object S012_MatchCase extends  App {
   println(result2)
 
   // match case with if condition
-  val price: Double =  50.0 // 100.0
+  val price: Double =  50.0 // 100.0  90 70
 
   val discount = price match {
     case p: Double if p >= 100 => 10.0 // return value

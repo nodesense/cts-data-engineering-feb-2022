@@ -35,6 +35,21 @@ cd $HIVE_HOME
 $HIVE_HOME/bin/hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10000 --hiveconf hive.root.logger=INFO,console
 ```
 
+
+## Run Hive Cli that connects to Meta Data Server
+
+Open new Command prompt
+
+```
+cd $HIVE_HOME
+```
+
+
+```
+$HIVE_HOME/bin/hive
+
+```
+
 To check Hive Server Web UI http://localhost:10002/
 
 To Check HDFS Web UI http://localhost:50070

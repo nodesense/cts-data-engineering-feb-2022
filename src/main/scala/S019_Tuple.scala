@@ -4,6 +4,7 @@ object S019_Tuple extends  App {
   // members are checked at compile time, strongly typed
   val stock = ("INFY", 1600.0, 1580.3, 1620.5, 1000000)
 
+
   println(stock._1) // INFY
   println(stock._4) // 1620.5
   println(stock._5) // 1000000

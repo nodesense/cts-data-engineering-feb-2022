@@ -5,6 +5,7 @@ object S007_Functions extends  App {
   // use => to define functions in scala
   // method is not function , method is not an object
 
+  // Type inference by compiler
   // a function that takes no parameter, return no result/Unit
   val greeting = () => println("Good Afternoon")
 
@@ -14,6 +15,7 @@ object S007_Functions extends  App {
   val greet = (name: String) => println("Good Afternoon", name)
 
   greet("Venkat")
+
   // pow takes 1 parameter, return result
   val pow = (n: Int) => n * n
   println ( pow(5) )
@@ -22,4 +24,5 @@ object S007_Functions extends  App {
   val add = (a : Int, b: Int) => a + b
   println ( add(10, 20) )
 
+  println(add.getClass)
 }

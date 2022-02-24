@@ -16,7 +16,7 @@ object S001_Val extends App {
   //  name = "Spark" // error, it won't compile, we cannot change name value
   println(name)
 
-  // Type interference
+  // Type inference
   // no need to mention the type while defining var/val
   // compiler will take from expression on right side
   // compiler assume framework is a string type - this is called inference
