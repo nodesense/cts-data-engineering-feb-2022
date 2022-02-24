@@ -109,19 +109,92 @@ SELECT * FROM employees;
 ```
 
 
+## Hive External Table with CSV Headers
+
+A CSV called payrole1.csv
+
+```
+nano  payrole1.csv
+```
+
+```
+id,empid,salary,bonus
+1,123,5000,500
+2,124,6000,600
+3,126,7500,750
+```
+
+Ctrl + O 
+
+Ctrl + X
+
+
+```
+hdfs dfs -mkdir /payroles
+
+hdfs dfs -chmod 777 /payroles
+
+hdfs dfs -put payrole1.csv /payroles
+
+```
+
+CREATE EXTERNAL TABLE call it as payroles, IGNORE HEADER IN CSV
+
+
+
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS payroles(
+  id INT, 
+  emp_id INT,
+  salary DECIMAL(10,0), 
+  bonus DECIMAL(10,0)
+  )
+  COMMENT 'here you can see all salary'
+  ROW FORMAT DELIMITED
+  FIELDS TERMINATED BY ','
+  STORED AS TEXTFILE
+  LOCATION '/payroles'
+  TBLPROPERTIES ("skip.header.line.count"="1");
+```
+
+
+on hive cli
+
+```sql
+SELECT * FROM payroles;
+```
+
 ### DO NOT TRY NOW
 
-CREATE TABLE IF NOT EXISTS employees(
+Now we are creating a managed table employees2, coping data from external table into managed
+table using INSERT Query
+
+```sql
+CREATE TABLE IF NOT EXISTS employees2(
   employee_id INT, 
   name STRING, 
   dept STRING
   )
-  COMMENT 'employees names managed';
+  COMMENT 'employees2  managed';
+```
 
-INSERT OVERWRITE TABLE employees SELECT * FROM employees_ext;
 
-SELECT * from employees; 
 
+```sql
+SHOW TABLES IN default;
+```
+
+Select all data from external table, insert into employees2 managed table
+
+```sql
+INSERT OVERWRITE TABLE employees2 SELECT * FROM employees;
+```
+
+Query managed table
+
+```
+SELECT * from employees2; 
+```
 
 
 SELECT * from employees;   
