@@ -14,7 +14,7 @@ pip install findspark
 --------------------------------
 ## Start jupyter on every day basis
 
-Open Terminal
+Open Terminal in Ubuntu
 
 ```
 cd workshop
