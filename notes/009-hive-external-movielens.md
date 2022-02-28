@@ -102,6 +102,21 @@ select * from moviedb.ratings limit 5;
 ```
 
 
+## Few Quries
+
+```sql
+SELECT * FROM moviedb.ratings WHERE rating >= 4.5;
+```
+
+```
+SELECT * FROM moviedb.ratings WHERE rating >= 3.5 AND rating <= 4.0;
+```
+
+
+SELECT rating from moviedb.ratings LIMIT 10;
+
+
+
 -- Do same steps for links and tags table ensure column name follow a convention userId => user_id
 
 
