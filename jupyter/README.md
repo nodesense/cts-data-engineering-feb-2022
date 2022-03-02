@@ -11,6 +11,14 @@ mkdir workshop/pyspark-notebooks
 pip install findspark
 ```
 
+#### Setup Scala Support
+
+
+```
+pip install spylon-kernel
+python -m spylon_kernel install --user
+```
+
 --------------------------------
 ## Start jupyter on every day basis
 

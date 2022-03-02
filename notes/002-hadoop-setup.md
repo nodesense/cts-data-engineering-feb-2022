@@ -18,9 +18,11 @@ wget -P $HADOOP_HOME/etc/hadoop/ https://raw.githubusercontent.com/nodesense/kaf
 wget -P $HADOOP_HOME/etc/hadoop/ https://raw.githubusercontent.com/nodesense/kafka-workshop/master/hadoop/yarn-site.xml
 
 ```
+## First time
 
 ```
 ssh localhost
+
 
 hdfs namenode -format
 
@@ -35,6 +37,25 @@ jps
 
 ```
 
+## In Case DataNode, namenode not starting after start-all.sh or stop-all.sh
+
+```
+stop-all.sh
+
+ssh localhost
+
+sudo rm -rf /data/hdfs
+
+sudo mkdir /data/hdfs
+
+sudo chmod 777 -R /data/hdfs
+
+hdfs namenode -format
+
+start-all.sh 
+
+jps
+```
 
 Open browser to check whether hdfs namenode working..
 
