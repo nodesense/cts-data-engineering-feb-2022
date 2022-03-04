@@ -32,3 +32,19 @@ hdfs dfs -ls   /stocks/sectors
 ```
 hdfs dfs -ls   /stocks/daily
 ```
+
+## Daily Data
+
+
+Open Terminal 
+
+
+```
+
+cd ~/Downloads
+
+cd StockData
+
+hdfs dfs -put StockIntraDay-2021-2022/    /raw
+
+```
