@@ -8,3 +8,5 @@ null
 project/target
 *.log
 *.dll
+__pycache__
+*.pyc
