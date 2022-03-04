@@ -48,3 +48,18 @@ cd StockData
 hdfs dfs -put StockIntraDay-2021-2022/    /raw
 
 ```
+
+Check folder size after uploading content
+
+```
+hdfs dfs -dus /raw
+```
+
+
+Check folder size after  converting to parquet format
+
+```
+hdfs dfs -dus /silver
+```
+
+
