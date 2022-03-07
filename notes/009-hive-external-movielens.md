@@ -9,6 +9,14 @@ cd Downloads
 cd ml-latest-small
 ```
 
+# start hive cli, create database, create tables..
+
+```
+cd $HIVE_HOME
+$HIVE_HOME/bin/hive
+```
+
+
 ### DIY
 
 ```sql
