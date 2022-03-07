@@ -1,5 +1,7 @@
 # Spark SQL CLI
 
+Open Terminal to run the commands.
+
 Write direct SQL statement and execute in spark
 Internally same DF, Catalyst and no different from using pyspark shell
 
