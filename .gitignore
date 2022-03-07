@@ -10,3 +10,9 @@ project/target
 *.dll
 __pycache__
 *.pyc
+*.lck
+metastore_db
+pyspark-notebooks/metastore_db
+*.dat
+*.ctrl
+
