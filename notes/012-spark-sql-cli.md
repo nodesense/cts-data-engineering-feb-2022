@@ -15,11 +15,11 @@ spark-sql  --hiveconf hive.metastore.uris=thrift://localhost:9083  --hiveconf hi
 SHOW DATABASES;
 ```
 
-```
+```sql
 SHOW TABLES IN moviedb;
 ```
 
-```
+```sql
 SELECT * from moviedb.movies LIMIT 5;
 ```
 
@@ -38,7 +38,7 @@ HAVING avg_rating >= 3.5 AND total_ratings >= 100;
 ```
 
 
-```
+```sql
 SHOW TABLES IN moviedb;
 ```
 
@@ -47,11 +47,11 @@ CREATE TABLE moviedb.most_popular_movies5 AS
 SELECT movies.movie_id, title, avg_rating, total_ratings 
 FROM popular_movies 
 INNER JOIN moviedb.movies movies ON popular_movies.movie_id = movies.movie_id
-ORDER BY avg_rating DESC
+ORDER BY avg_rating DESC;
 ```
 
 
-```
+```sql
 SHOW TABLES IN moviedb;
 ```
 
