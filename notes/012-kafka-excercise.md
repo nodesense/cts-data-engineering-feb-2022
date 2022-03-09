@@ -66,3 +66,35 @@ kafka-consumer-groups --bootstrap-server localhost:9092  --group order-book-cons
 ```
 
 
+## reset kafka consumer group offset to specific time onwards, 
+
+like yesterday night 12:00 am, last week, month beginging etc
+
+run the kafka-console-consumer to print timestamp
+
+```
+kafka-console-consumer --bootstrap-server localhost:9092 --topic order-book --group order-book-console-consumer    --property print.key=true  --property print.timestamp=true
+````
+
+To Reset offset based on timestamp
+
+Copy the timestamp displayed by previous command, input the timestamp in below website,
+
+https://currentmillis.com/ 
+
+Refer UTC time
+
+```
+Example Date: Wed Mar 09 2022 10:42:45
+
+ format for date : YYYY-MM-DDTHH:mm:SS.sss
+
+ example format: 2022-03-09T17:00:00.000
+  
+ UTC Wed Mar 09 2022 15:42:45
+          2022-03-09T15:42:45.000
+```
+ 
+```
+kafka-consumer-groups --bootstrap-server localhost:9092  --group order-book-console-consumer  --reset-offsets --to-datetime 2022-03-09T17:00:00.000  --execute --topic order-book
+```
