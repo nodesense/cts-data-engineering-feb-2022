@@ -50,8 +50,19 @@ dry run - print plan without resetitng offsets
 kafka-consumer-groups --bootstrap-server localhost:9092  --group order-book-console-consumer --reset-offsets --to-earliest --dry-run --topic order-book
 ```
 
-execute shall reset the offsets
+execute shall reset the offsets to earliest, begining of offset
 
 ```
 kafka-consumer-groups --bootstrap-server localhost:9092  --group order-book-console-consumer --reset-offsets --to-earliest --execute --topic order-book
 ```
+
+
+
+execute shall reset the offsets to latest, end of offset,
+consumer shall read only new messages
+
+```
+kafka-consumer-groups --bootstrap-server localhost:9092  --group order-book-console-consumer --reset-offsets --to-latest --execute --topic order-book
+```
+
+
