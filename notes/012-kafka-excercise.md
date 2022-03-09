@@ -43,3 +43,15 @@ to describe a specific group
 kafka-consumer-groups --bootstrap-server localhost:9092 --describe  --group order-book-console-consumer
 ```
 
+
+dry run - print plan without resetitng offsets
+
+```
+kafka-consumer-groups --bootstrap-server localhost:9092  --group order-book-console-consumer --reset-offsets --to-earliest --dry-run --topic order-book
+```
+
+execute shall reset the offsets
+
+```
+kafka-consumer-groups --bootstrap-server localhost:9092  --group order-book-console-consumer --reset-offsets --to-earliest --execute --topic order-book
+```
