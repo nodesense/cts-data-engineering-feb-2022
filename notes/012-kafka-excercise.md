@@ -13,3 +13,33 @@ publish data
 start consumer 
 check the data not read by consumer are consumed by consumer or not
 ```
+
+
+to list all consumers
+
+```
+kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic  order-book
+```
+
+```
+kafka-console-producer --broker-list localhost:9092 --topic order-book --property "parse.key=true" --property "key.separator=:"
+```
+
+
+```
+kafka-consumer-groups --bootstrap-server localhost:9092 --list
+```
+
+to start consumer with specific group
+
+```
+kafka-console-consumer --bootstrap-server localhost:9092 --topic order-book --group order-book-console-consumer    --property print.key=true
+```
+
+
+to describe a specific group 
+
+```
+kafka-consumer-groups --bootstrap-server localhost:9092 --describe  --group order-book-console-consumer
+```
+
