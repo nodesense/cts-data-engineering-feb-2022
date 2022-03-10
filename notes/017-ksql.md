@@ -120,3 +120,22 @@ ksql> SHOW TABLES;
 ```
 ksql> SELECT * FROM SECTOR_TABLE EMIT CHANGES;
 ```
+
+
+
+
+### CREATE STREAM FROM AVRO
+
+```
+CREATE STREAM ORDERS_STREAM (type VARCHAR, order_type VARCHAR, symbol VARCHAR, 
+                            quantity INT, price DOUBLE, 
+                            timestamp BIGINT, customer_id VARCHAR)
+        WITH (KAFKA_TOPIC='stock-orders', 
+              VALUE_FORMAT='avro',
+              TIMESTAMP='timestamp'
+        );
+```
+
+```
+SELECT * FROM ORDERS_STREAM EMIT CHANGES LIMIT 1;
+```
