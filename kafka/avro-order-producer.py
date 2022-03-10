@@ -19,7 +19,7 @@ DELAY = 10
 
 print(symbols)
 
-SAMPLES = 1
+SAMPLES = 1000
 ORDER_TOPIC = "stock-orders"
 
 ORDER_SCHEMA_STR = """
