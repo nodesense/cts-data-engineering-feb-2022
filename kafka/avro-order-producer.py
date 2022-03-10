@@ -5,11 +5,13 @@ import sectors
 import datetime 
 from confluent_kafka import avro
 from confluent_kafka.avro import AvroProducer
+import time
 
 types = ['Buy', 'Sell']
 order_types = ['LIMIT', 'MARKET', 'SL']
 quantities = [100, 500,1000, 2000]
 symbols = [sector["Symbol"] for sector in sectors.get_sectors()]
+DELAY = 10
 
 print(symbols)
 
@@ -116,4 +118,5 @@ for i in range(SAMPLES):
 
     avroProducer.produce(topic=ORDER_TOPIC, value=value, key=key)
     avroProducer.flush()
+    time.sleep(DELAY)
    
