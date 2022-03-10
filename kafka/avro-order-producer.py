@@ -1,5 +1,9 @@
 # customers placing order for particular symbol
 #  columns: symbol, type: Buy | Sell, quantity: int, price: double, order_type: limit | market | sl
+
+# kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic stock-orders
+# kafka-avro-console-consumer --bootstrap-server localhost:9092 --topic stock-orders --from-beginning
+
 import random
 import sectors
 import datetime 
