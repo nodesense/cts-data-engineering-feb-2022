@@ -27,3 +27,31 @@ Amara Raja Batteries Ltd.,	AUTOMOBILE,	AMARAJABAT,	EQ,	INE885A01032
 
          publish json string to kafka topic called "sectors" with 3 partitions
 ```
+
+create topic 
+
+```
+kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic sectors
+```
+
+on separate terminal,
+
+```
+kafka-console-consumer --bootstrap-server localhost:9092 --topic sectors --from-beginning
+```
+
+on keep sectors folder in workshop folder.
+
+
+open terminal
+
+```
+cd workshop
+
+cd kafka
+
+python  kafka-sector-publisher.py
+```
+
+check the console consumer received the message..
+then close the console consumer Ctrl + C
