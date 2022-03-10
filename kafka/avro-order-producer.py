@@ -15,11 +15,11 @@ types = ['Buy', 'Sell']
 order_types = ['LIMIT', 'MARKET', 'SL']
 quantities = [100, 500,1000, 2000]
 symbols = [sector["Symbol"] for sector in sectors.get_sectors()]
-DELAY = 10
+DELAY = 0
 
 print(symbols)
 
-SAMPLES = 1000
+SAMPLES = 10 * 1000000
 ORDER_TOPIC = "stock-orders"
 
 ORDER_SCHEMA_STR = """
