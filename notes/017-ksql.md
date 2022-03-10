@@ -139,3 +139,119 @@ CREATE STREAM ORDERS_STREAM (type VARCHAR, order_type VARCHAR, symbol VARCHAR,
 ```
 SELECT * FROM ORDERS_STREAM EMIT CHANGES LIMIT 1;
 ```
+
+
+
+SELECT * FROM ORDERS_STREAM WHERE quantity <= 500  EMIT CHANGES;
+
+
+SELECT symbol, quantity, price FROM ORDERS_STREAM EMIT CHANGES;
+
+
+SELECT symbol, quantity, price, quantity * price as amount  FROM ORDERS_STREAM EMIT CHANGES;
+
+
+To list persisted queries,
+
+```
+SHOW QUERIES;
+```
+
+
+```
+SELECT symbol, COUNT(symbol), SUM(quantity), SUM(quantity * price) FROM ORDERS_STREAM  GROUP BY symbol EMIT CHANGES;
+
+```
+
+
+```
+SELECT symbol, COUNT(symbol) as count, SUM(quantity) as quantity, SUM(quantity * price) as traded_value FROM ORDERS_STREAM GROUP BY symbol EMIT CHANGES;
+
+```
+
+## PERSISTED QUERIES
+
+Persisted queries run inside kafka ksql server, the output of the 
+persisted queries shall be published to kafka topic
+
+Persisted queries starts with `CREATE STREAM <name> AS` or 
+`CREATE TABLE <name> AS`, 
+
+
+```
+CREATE TABLE ORDERS_SUMMARY AS SELECT symbol, COUNT(symbol) as count, SUM(quantity) as quantity, SUM(quantity * price) as traded_value FROM ORDERS_STREAM GROUP BY symbol;
+
+```
+```
+ Message                                     
+---------------------------------------------
+ Created query with ID CTAS_ORDERS_SUMMARY_0 
+---------------------------------------------
+ksql> 
+
+```
+
+
+```
+SHOW TOPICS;
+```
+
+we should see ORDERS_SUMMARY topic..
+
+```
+SHOW TABLES;
+```
+
+we should see table ORDERS_SUMMARY
+
+
+every persisted query shall run in background, to see them, 
+
+we need to use
+
+```sql
+SHOW QUERIES;
+```
+
+to stop persisted queries, we need to use 
+
+```sql
+TERMINATE <query-id>
+```
+
+example
+
+```sql
+TERMINATE CTAS_ORDERS_SUMMARY_0;
+```
+
+
+## Join two streams
+
+sectors stream has Industry, Symbol
+JOIN WITH stock-orders has Symbol
+
+Which how many orders placed per sector
+How many quantities purchased per sector
+How much money /value traded per sector
+
+```
+CREATE TABLE SECTOR_SUMMARY AS 
+SELECT Industry, COUNT(ORDERS_STREAM.symbol) as count, SUM(quantity) as quantity, SUM(quantity * price) as traded_value FROM ORDERS_STREAM 
+LEFT JOIN SECTOR_STREAM WITHIN 1 HOURS ON SECTOR_STREAM.Symbol  = ORDERS_STREAM.symbol
+ GROUP BY Industry EMIT CHANGES;
+```
+
+```
+SELECT * FROM SECTOR_SUMMARY EMIT CHANGES;
+```
+
+
+```
+kafka-topics --describe  --bootstrap-server localhost:9092  --topic stock-orders
+
+kafka-topics  --alter --bootstrap-server localhost:9092   --partitions 3 --topic stock-orders
+
+kafka-topics --describe  --bootstrap-server localhost:9092  --topic stock-orders
+
+```
