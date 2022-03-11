@@ -38,4 +38,8 @@ Result of compaction
                 1 Kafka Message, AC1.Swing [Kafka Key] =  Off
                 1 Kafka Message, AC1.FAN [Kafka Key] =  1
 
-                
+
+kafka-console-producer --broker-list localhost:9092 --topic settings1 --property "parse.key=true" --property "key.separator=:"
+
+ Occurs 
+ welcome
