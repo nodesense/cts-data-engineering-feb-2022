@@ -6,7 +6,7 @@
 
 
 # cd workshop/kafka
-# python kafka-candle-json-producer.py
+# python kafka-candle-json-producer-late-data.py
 
 import random
 import sectors
@@ -19,12 +19,11 @@ quantities = [10, 120, 30, 40, 50, 100]
 symbols = [sector["Symbol"] for sector in sectors.get_sectors()]
 
 # FIXME: remove this 
-symbols = ['MARUTI', 'RELAXO']
-
+symbols = ['TSLA']
 
 DELAY = 10
 
-SAMPLES =  10000
+SAMPLES =  5
 TOPIC = "stock-ticks"
    
 def delivery_report(err, msg):
@@ -39,6 +38,7 @@ def delivery_report(err, msg):
 
 producer = Producer({'bootstrap.servers': 'localhost:9092'})
 
+delayed_records = []
 
 for i in range(SAMPLES):
     
@@ -63,9 +63,24 @@ for i in range(SAMPLES):
 
     valueStr = json.dumps(value).encode('utf-8')
 
-    print('valueStr ', valueStr)
+    n = random.randint(1, 10)
+    if (n % 2 == 0):
+        print("skipping ", order_time, 'valueStr ', valueStr)
+        delayed_records.append( (key, valueStr))
+        time.sleep(DELAY)
+        continue
+
+    print(order_time, 'valueStr ', valueStr)
 
     producer.produce(topic=TOPIC, value=valueStr, key=key)
     producer.flush()
     time.sleep(DELAY)
    
+print("Waiting...")
+time.sleep(60 * 2)  # wait 2 minutes 
+print ("sending delayed reocrd")
+for record in delayed_records:
+    print ("delayed record ", record[1]) 
+    producer.produce(topic=TOPIC, value=record[1], key=record[0])
+    producer.flush()
+    time.sleep(DELAY)
