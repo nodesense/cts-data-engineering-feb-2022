@@ -1,5 +1,5 @@
 
-Tick - input/json
+Tick - input/json - kafka-candle-json-producer.py
 
 Timestamp - milliseconds 
 symbol - TSLA
@@ -12,6 +12,12 @@ March 14, 13:30:14       TSLA     11    50       -- HIGH
 March 14, 13:30:34       TSLA     9.95      20   -- LOW
 March 14, 13:30:58       TSLA     10.75    10      -- CLOSE
 
+----
+
+Spark read ticks data
+calculate candles, total, volumes etc
+
+output json 
 
 ---
 Output : candle/json format 
