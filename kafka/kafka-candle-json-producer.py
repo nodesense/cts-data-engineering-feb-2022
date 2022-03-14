@@ -18,6 +18,10 @@ import json
 quantities = [10, 120, 30, 40, 50, 100]
 symbols = [sector["Symbol"] for sector in sectors.get_sectors()]
 
+# FIXME: remove this 
+symbols = ['MARUTI', 'RELAXO']
+
+
 DELAY = 10
 
 SAMPLES =  1000
