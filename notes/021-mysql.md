@@ -59,8 +59,43 @@ Now login into mysql as root user
 sudo mysql -u root
 ```
 
-password is team1234
+ 
 
+
+```
+mysql> create database testdb;
+```
+Query OK, 1 row affected (0.01 sec)
+
+```
+mysql> use testdb;
+```
+Database changed
+```
+mysql> create table test(id int);
+```
+Query OK, 0 rows affected (0.02 sec)
+```
+mysql> insert into test values (1);
+```
+Query OK, 1 row affected (0.01 sec)
+```
+mysql> insert into test values (2);
+```
+Query OK, 1 row affected (0.00 sec)
+
+```
+mysql> select  * from test;
+
+```
+
++------+
+| id   |
++------+
+|    1 |
+|    2 |
++------+
+2 rows in set (0.00 sec)
 
 
 
