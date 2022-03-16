@@ -148,9 +148,17 @@ sudo mysql -u root
 
 
 ```sql
+use mysql;
+SELECT user FROM user;
+
 CREATE USER 'team'@'%' IDENTIFIED BY 'Team1234!';
+
 GRANT ALL PRIVILEGES ON testdb.* TO 'team'@'%';
+
 FLUSH PRIVILEGES;
+
+ SELECT user FROM user;
+
 ```
 
 ## FIXME: allow connection from windows
