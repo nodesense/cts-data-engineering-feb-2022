@@ -37,7 +37,7 @@ def delivery_report(err, msg):
 
 # at very first producer shalll upload schema to schema registry
 
-producer = Producer({'bootstrap.servers': 'localhost:9092'})
+producer = Producer({'bootstrap.servers': 'hadoop-vm:9092'})
 
 
 for i in range(SAMPLES):
