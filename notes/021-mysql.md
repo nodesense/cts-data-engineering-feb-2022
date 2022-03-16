@@ -161,4 +161,51 @@ FLUSH PRIVILEGES;
 
 ```
 
+to exist mysql prompt,
+
+```sql
+exit;
+```
+
 ## FIXME: allow connection from windows
+
+
+```
+sudo mysql -u root
+```
+
+
+```sql
+mysql> create database stockdb;
+mysql> use stockdb;
+```
+  
+```sql
+CREATE TABLE stockdb.sectors(company VARCHAR(200), 
+                            industry VARCHAR(200), 
+                            symbol VARCHAR(200), 
+                            series VARCHAR(200), 
+                            isin VARCHAR(200)
+                              );
+``` 
+
+```sql
+exit;
+```
+
+## Assign permission to stockdb
+
+```
+sudo mysql -u root
+```
+
+```sql
+use mysql;
+
+
+GRANT ALL PRIVILEGES ON stockdb.* TO 'team'@'%';
+
+FLUSH PRIVILEGES;
+
+
+```
