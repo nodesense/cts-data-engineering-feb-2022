@@ -19,12 +19,12 @@ quantities = [10, 120, 30, 40, 50, 100]
 symbols = [sector["Symbol"] for sector in sectors.get_sectors()]
 
 # FIXME: remove this 
-symbols = ['MARUTI', 'RELAXO']
+symbols = ['MARUTI', 'RELAXO', 'TSLA', 'MSFT']
 
 
-DELAY = 10
+DELAY = 2
 
-SAMPLES =  10000
+SAMPLES =  10000000
 TOPIC = "stock-ticks"
    
 def delivery_report(err, msg):
