@@ -38,6 +38,48 @@ on bash/shell
 sudo mysql_secure_installation
 ```
 
+
+
+### Make mysql listen on all IP address to enable connect from windows
+
+to find ip address, use
+
+```
+ip addr show
+```
+
+
+```
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf 
+```
+
+find comment out exisitng bind-address and mysqlx-bind-address
+and  edit/add below settings
+
+```
+bind-address           = 192.168.80.128           
+mysqlx-bind-address     = 192.168.80.128
+```
+
+Ctrl + O  and Enter key to save the file
+
+Ctrl + X to exit
+
+
+restart mysql 
+```
+sudo systemctl restart mysql
+```
+
+check if mysql working again
+
+```
+sudo systemctl status mysql
+```
+
+press q to exit
+
+
 Low 
 
 passsword: team1234
@@ -98,6 +140,17 @@ mysql> select  * from test;
 2 rows in set (0.00 sec)
 
 
+# Create user with all host access
+
+```
+sudo mysql -u root
+```
 
 
+```sql
+CREATE USER 'team'@'%' IDENTIFIED BY 'Team1234!';
+GRANT ALL PRIVILEGES ON testdb.* TO 'team'@'%';
+FLUSH PRIVILEGES;
+```
 
+## FIXME: allow connection from windows
