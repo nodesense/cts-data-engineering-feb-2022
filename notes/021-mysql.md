@@ -57,8 +57,8 @@ find comment out exisitng bind-address and mysqlx-bind-address
 and  edit/add below settings
 
 ```
-bind-address           = 192.168.80.128           
-mysqlx-bind-address     = 192.168.80.128
+bind-address           = 0.0.0.0           
+mysqlx-bind-address     = 0.0.0.0
 ```
 
 Ctrl + O  and Enter key to save the file
@@ -208,4 +208,16 @@ GRANT ALL PRIVILEGES ON stockdb.* TO 'team'@'%';
 FLUSH PRIVILEGES;
 
 
+```
+
+
+```
+sudo mysql -u root
+```
+
+
+```sql
+use stockdb;
+
+SELECT * FROM sectors;
 ```
