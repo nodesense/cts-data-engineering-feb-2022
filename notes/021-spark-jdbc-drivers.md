@@ -5,7 +5,7 @@ Download https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.
 
 in ubuntu system
 
-Extrac the files
+Extract the files
 
 copy 2 jars files into below location
 
