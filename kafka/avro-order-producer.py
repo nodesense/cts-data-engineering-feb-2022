@@ -1,8 +1,8 @@
 # customers placing order for particular symbol
 #  columns: symbol, type: Buy | Sell, quantity: int, price: double, order_type: limit | market | sl
 
-# kafka-topics  --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic stock-orders
-# kafka-avro-console-consumer --bootstrap-server localhost:9092 --topic stock-orders --from-beginning
+# kafka-topics  --create --bootstrap-server hadoop-vm:9092 --replication-factor 1 --partitions 3 --topic stock-orders
+# kafka-avro-console-consumer --bootstrap-server hadoop-vm:9092 --topic stock-orders --from-beginning
 
 import random
 import sectors
@@ -15,7 +15,7 @@ types = ['Buy', 'Sell']
 order_types = ['LIMIT', 'MARKET', 'SL']
 quantities = [100, 500,1000, 2000]
 symbols = [sector["Symbol"] for sector in sectors.get_sectors()]
-DELAY = 0
+DELAY = 10
 
 print(symbols)
 
@@ -84,9 +84,9 @@ def delivery_report(err, msg):
 # at very first producer shalll upload schema to schema registry
 
 avroProducer = AvroProducer({
-    'bootstrap.servers': 'localhost:9092',
+    'bootstrap.servers': 'hadoop-vm:9092',
     'on_delivery': delivery_report,
-    'schema.registry.url': 'http://localhost:8081'
+    'schema.registry.url': 'http://hadoop-vm:8081'
     }, default_key_schema=KEY_SCHEMA, default_value_schema=ORDER_SCHEMA)
 
 
