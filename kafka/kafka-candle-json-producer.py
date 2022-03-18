@@ -19,12 +19,12 @@ quantities = [10, 120, 30, 40, 50, 100]
 symbols = [sector["Symbol"] for sector in sectors.get_sectors()]
 
 # FIXME: remove this 
-symbols = ['MARUTI', 'RELAXO', 'TSLA', 'MSFT']
+# symbols = ['MARUTI', 'RELAXO', 'TSLA', 'MSFT']
 
+# 6 to 10 message per second to kafka topic
+DELAY = 0.1
 
-DELAY = 2
-
-SAMPLES =  10000000
+SAMPLES =  5 * 10000000
 TOPIC = "stock-ticks"
    
 def delivery_report(err, msg):
