@@ -252,6 +252,6 @@ nano  mysql-order-sink.json
   ```
   SHOW TABLES;
   
-  SELECT * FROM stock_orders;
+  select * from `stock-orders`;
   
   ```
