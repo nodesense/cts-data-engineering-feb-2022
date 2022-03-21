@@ -84,9 +84,9 @@ def delivery_report(err, msg):
 # at very first producer shalll upload schema to schema registry
 
 avroProducer = AvroProducer({
-    'bootstrap.servers': 'hadoop-vm:9092',
+    'bootstrap.servers': 'localhost:9092',
     'on_delivery': delivery_report,
-    'schema.registry.url': 'http://hadoop-vm:8081'
+    'schema.registry.url': 'http://localhost:8081'
     }, default_key_schema=KEY_SCHEMA, default_value_schema=ORDER_SCHEMA)
 
 
