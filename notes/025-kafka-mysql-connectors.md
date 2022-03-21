@@ -253,5 +253,8 @@ nano  mysql-order-sink.json
   SHOW TABLES;
   
   select * from `stock-orders`;
+
+  select count(*) from `stock-orders`;
+
   
   ```
