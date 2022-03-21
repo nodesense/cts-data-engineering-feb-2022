@@ -121,10 +121,15 @@ USE ecommerce;
   insert into products (id, name,price) values(2, 'product2', 200);
   insert into products (id, name,price) values(3, 'product3', 300);
   insert into products (id, name,price) values(4, 'product4', 400);
-  
+
+  select * from products;  
+  update products set price = 101 where id = 1;
+
+  select * from products;
+
   ```
  
-  as you insert, you can see the topics db_products with inserted data, this called Event Sourcing..
+  as you insert, you can see the topics db_products with inserted data, this is called Event Sourcing..
   
   
   
@@ -234,6 +239,12 @@ nano  mysql-order-sink.json
   
  ```
   now run the stock order producer  in python 
+
+  cd workshop
+  
+  cd kafka
+
+  python avro-order-producer.py 
   ```
   
   In mysql
