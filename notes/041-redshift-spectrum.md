@@ -34,3 +34,19 @@ Below query runs on RedShift Spectrum which runs query on S3 Data Lake
 ```sql
 SELECT * FROM gk_schema.movies
 ```
+
+
+````sql
+-- runs on REDSHIFT SPECTRUM
+
+SELECT * FROM "dev"."gk_schema"."gold_popular_movies";
+
+
+-- parquet column based format, from system, it reads only one column
+SELECT title from  "dev"."gk_schema"."parquet_movies";
+
+
+-- csv row based format, from system, it SCANs all columns parse it, pick one
+SELECT title from  "dev"."gk_schema"."movies";
+
+```
