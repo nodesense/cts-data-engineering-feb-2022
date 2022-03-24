@@ -166,3 +166,58 @@ emp2.show(5)
 ```
 
 3. JDBC with Redshift
+
+
+```python
+# install library  com.amazon.redshift:redshift-jdbc42:2.1.0.5   from mvn
+# WRITE TO JDBC, Just an example
+# it will create an employee table and write content
+data = [ ("James", "Sales", 3000),
+    ("Michael", "Sales", 4600),
+    ("Robert", "Sales", 4100),
+    ("Maria", "Finance", 3000),
+    ("James", "Sales", 3000),
+    ("Scott", "Finance", 3300),
+    ("Jen", "Finance", 3900),
+    ("Jeff", "Marketing", 3000),
+    ("Kumar", "Marketing", 2000),
+    ("Saif", "Sales", 4100)
+   ]
+
+empDf = spark.createDataFrame(data=data, schema=['name', 'dept', 'salary'])
+empDf.printSchema()
+empDf.show()
+
+( empDf
+.write
+ .mode("overwrite")
+.format("jdbc")
+.option("url", "jdbc:redshift://<<HOSTNAME>>:5439/dev")
+.option("driver", "com.amazon.redshift.jdbc42.Driver")
+.option("user", "awsuser")
+.option("password", "<<PASSWORD>>")
+.option("dbtable", "employees")
+ .save()
+)
+```
+
+#### read from redshift
+
+```python
+#  install library mysql:mysql-connector-java:8.0.28
+# install org.postgresql:postgresql:42.3.3
+# READING FROM POSTGRESQL from RDS
+emp2 = ( spark.read
+.format("jdbc")
+.option("url", "jdbc:redshift://<<HOSTNAME>>:5439/dev")
+.option("driver", "com.amazon.redshift.jdbc42.Driver")
+.option("user", "awsuser")
+.option("password", "<<PASSWORD>>")
+.option("dbtable", "employees")
+ .load()
+ )
+
+emp2.printSchema()
+emp2.show(5)
+```
+
