@@ -3,7 +3,7 @@ For more learning, refer
 
 https://linuxhint.com/30_bash_script_examples/#t1
 
-To run bash scripts, test
+To run bash scripts, 
 
 on the terminal,
 
