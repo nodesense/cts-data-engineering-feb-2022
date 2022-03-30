@@ -1,6 +1,6 @@
 from confluent_kafka import Producer
 
-p = Producer({'bootstrap.servers': 'localhost:9092'})
+p = Producer({'bootstrap.servers': 'b-1.demo-cluster-1.hu0has.c6.kafka.us-east-2.amazonaws.com:9092'})
 
 def delivery_report(err, msg):
     """ Called once for each message produced to indicate delivery result.
