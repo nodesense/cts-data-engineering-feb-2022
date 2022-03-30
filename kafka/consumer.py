@@ -2,12 +2,12 @@ from confluent_kafka import Consumer
 
 
 c = Consumer({
-    'bootstrap.servers': 'localhost:9092',
+    'bootstrap.servers': 'b-1.demo-cluster-1.hu0has.c6.kafka.us-east-2.amazonaws.com:9092',
     'group.id': 'mygroup2',
     'auto.offset.reset': 'earliest'
 })
 
-c.subscribe(['test'])
+c.subscribe(['greetings'])
 
 while True:
     # read data from broker if any for 1 second time
