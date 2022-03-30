@@ -16,7 +16,7 @@ from pyspark.conf import SparkConf
 config = SparkConf()
 
 #config.setMaster("spark://192.168.80.128:7077").setAppName("DFJoin")
-config.setAppName("spark-submi-example-2")
+config.setAppName("spark-submit-example-2")
 
 # config.set("spark.executor.memory", "4g")
 # config.set("spark.executor.cores", 2)

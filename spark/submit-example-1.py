@@ -50,5 +50,3 @@ brandDf.show()
 # select/pick only matching record, discord if no matches found
 productDf.join(brandDf, productDf["brand_id"] ==  brandDf["brand_id"], "inner").show()
 
-print ("enter key to exit")
-sys.stdin.readline()
