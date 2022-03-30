@@ -7,7 +7,7 @@ c = Consumer({
     'auto.offset.reset': 'earliest'
 })
 
-c.subscribe(['test'])
+c.subscribe(['greetings'])
 
 while True:
     # read data from broker if any for 1 second time
