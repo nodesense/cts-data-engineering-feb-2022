@@ -79,3 +79,21 @@ spark-submit movielens.py --master yarn  --deploy-mode cluster   --driver-memory
 ```
 
 You may check status of the job in Yarn application UI with socks proxy..
+
+# Spark Memory
+
+Reference: https://miro.medium.com/max/982/1*XceNd8_jFS9R1EDKJ8tsIw.png
+
+Article: https://medium.com/analytics-vidhya/apache-spark-memory-management-49682ded3d42
+
+Reduce the Memory Fraction, less space given for Cache, BroadCast variables..
+
+```
+spark-submit movielens.py --master yarn  --deploy-mode client  --driver-memory 4g   --executor-memory 2g  --executor-cores 1 --conf spark.memory.fraction=0.2
+```
+
+Increase memory fraction, more space given for cache..
+
+```
+spark-submit movielens.py --master yarn  --deploy-mode client  --driver-memory 4g   --executor-memory 2g  --executor-cores 1 --conf spark.memory.fraction=0.75
+```
