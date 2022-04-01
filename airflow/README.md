@@ -7,17 +7,14 @@ airflow standalone
 
 open your browser, check http://localhost:9999
 
----------------
+--------------- 
 
-airflow standalone
+# First Time Airflow Setup
 
-
-pip install "airflow.providers.apache.spark ==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
-
-
-pip install apache-airflow-providers-apache-spark
+Refer: https://airflow.apache.org/docs/apache-airflow/stable/start/local.html
 
 
+```
 # Airflow needs a home. `~/airflow` is the default, but you can put it
 # somewhere else if you prefer (optional)
 export AIRFLOW_HOME=~/airflow
@@ -30,6 +27,9 @@ CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${A
 # For example: https://raw.githubusercontent.com/apache/airflow/constraints-2.2.4/constraints-3.6.txt
 pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
 
+
+pip install apache-airflow-providers-apache-spark
+
 # The Standalone command will initialise the database, make a user,
 # and start all components for you.
 airflow standalone
@@ -37,3 +37,4 @@ airflow standalone
 # Visit localhost:8080 in the browser and use the admin account details
 # shown on the terminal to login.
 # Enable the example_bash_operator dag in the home page
+```
