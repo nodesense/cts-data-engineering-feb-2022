@@ -5,10 +5,12 @@ from airflow.providers.apache.spark.operators.spark_jdbc import SparkJDBCOperato
 from airflow.providers.apache.spark.operators.spark_sql import SparkSqlOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
+# schedule_interval=None,
+    
 with DAG(
     dag_id='myspark_example_dag',
-    schedule_interval=None,
     start_date=datetime(2021, 1, 1),
+    schedule_interval='*/5 * * * *',
     catchup=False,
     tags=['spark_example'],
 ) as dag:
