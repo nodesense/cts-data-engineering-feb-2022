@@ -44,6 +44,23 @@ ls $HIVE_HOME/conf
 
 ```
 
+add HIVE_HOME to .bashrc
+
+```
+nano ~/.bashrc
+```
+
+paste below to end of .bashrc
+ 
+
+```
+export HIVE_HOME=/opt/apache-hive-2.3.8
+```
+
+Ctrl + O - Save file, asked to enter file name, Press ENTER
+
+Ctrol  + X = Exit
+
 ```
 cd $HIVE_HOME
 $HIVE_HOME/bin/schematool -initSchema -dbType derby
