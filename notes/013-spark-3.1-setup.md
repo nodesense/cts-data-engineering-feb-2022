@@ -29,6 +29,12 @@ echo "export SPARK_HOME=/opt/spark-3.1.3-bin-hadoop2.7" >> ~/.bashrc
 echo "export PATH=\$PATH:\$SPARK_HOME/bin" >>  ~/.bashrc
 ```
 
+Install findspark
+
+```
+pip install findspark
+```
+
 close the terminal
 
 Then open Jupyter, test all settings good
