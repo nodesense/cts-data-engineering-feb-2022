@@ -5,7 +5,6 @@ To access downloaded files in Terminal,
 
 ```
 cd ~
-cd Downloads
 cd ml-latest-small
 ```
 
