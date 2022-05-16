@@ -126,6 +126,12 @@ SELECT rating from moviedb.ratings LIMIT 10;
 
 -- Do same steps for links and tags table ensure column name follow a convention userId => user_id
 
+Desc table
+
+```sql
+DESC FORMATTED moviedb.movies;
+
+```
 
 change location if needed
 
