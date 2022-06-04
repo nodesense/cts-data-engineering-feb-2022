@@ -3,12 +3,12 @@
 ```
 cd ~
 
-wget https://archive.apache.org/dist/hive/hive-2.3.8/apache-hive-2.3.8-bin.tar.gz
+wget https://archive.apache.org/dist/hive/hive-2.3.6/apache-hive-2.3.6-bin.tar.gz
 
-tar xf apache-hive-2.3.8-bin.tar.gz
-sudo mv apache-hive-2.3.8-bin /opt/apache-hive-2.3.8
+tar xf apache-hive-2.3.6-bin.tar.gz
+sudo mv apache-hive-2.3.6-bin /opt/apache-hive-2.3.6
 
-sudo chmod 777  /opt/apache-hive-2.3.8
+sudo chmod 777  /opt/apache-hive-2.3.6
 ```
 
 
@@ -19,7 +19,7 @@ sudo nano /etc/environment
 paste below 
 
 ```
-HIVE_HOME=/opt/apache-hive-2.3.8
+HIVE_HOME=/opt/apache-hive-2.3.6
 ```
  
 To save file in nano editor,
@@ -30,7 +30,7 @@ Ctrl + x - to close nano editor
 
 
 ```
-export HIVE_HOME=/opt/apache-hive-2.3.8
+export HIVE_HOME=/opt/apache-hive-2.3.6
 ```
 
 
@@ -54,7 +54,7 @@ paste below to end of .bashrc
  
 
 ```
-export HIVE_HOME=/opt/apache-hive-2.3.8
+export HIVE_HOME=/opt/apache-hive-2.3.6
 ```
 
 Ctrl + O - Save file, asked to enter file name, Press ENTER
@@ -85,7 +85,7 @@ output of init schema
 
 ```
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/opt/apache-hive-2.3.8/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/apache-hive-2.3.6/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/opt/hadoop-2.7.7/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
