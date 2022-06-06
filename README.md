@@ -93,3 +93,14 @@ jupyter lab
 
 the command above, start  a web server, which allows to write python code 
 interactively in notebooks, runs on port 8888, need a token to work
+
+
+```
+echo "# cts-flink-2022" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/gopalakrishnan-subramani/cts-flink-2022.git
+git push -u origin main
+```
